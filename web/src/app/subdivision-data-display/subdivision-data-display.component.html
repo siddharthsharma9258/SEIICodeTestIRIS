@@ -1,1 +1,30 @@
-<p>Display the subdivision data here!</p>
+<div class="filter-container">
+    <label for="filter">Filter by Subdivision Data Code:</label>
+    <select id="filter" [(ngModel)]="filter">
+      <option value="">All</option>
+      <option value="Active">Active</option>
+      <option value="Future">Future</option>
+      <option value="Builtout">Builtout</option>
+    </select>
+  
+    <label for="sort">Sort by:</label>
+    <select id="sort" [(ngModel)]="sort">
+      <option value="name">Subdivision Name</option>
+      <option value="nearMapImageDate">Near Map Image Date</option>
+    </select>
+  </div>
+  
+  <div class="table-container">
+    <div class="table-row table-header">
+      <div class="table-cell">Subdivision Name</div>
+      <div class="table-cell">Subdivision Status Code</div>
+      <div class="table-cell">Near Map Image Date</div>
+    </div>
+    <div *ngFor="let subdivision of filteredAndSortedSubdivisions() | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }" class="table-row">
+      <div class="table-cell">{{ subdivision.name }}</div>
+      <div class="table-cell">{{ subdivision.subdivisionStatusCode }}</div>
+      <div class="table-cell">{{ subdivision.nearMapImageDate }}</div>
+    </div>
+  </div>
+  <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+  

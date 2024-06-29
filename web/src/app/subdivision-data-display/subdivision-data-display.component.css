@@ -1,0 +1,29 @@
+/* src/app/subdivision-data-display/subdivision-data-display.component.css */
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .table-container {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table-row {
+    display: table-row;
+  }
+  
+  .table-cell {
+    display: table-cell;
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .table-header {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
